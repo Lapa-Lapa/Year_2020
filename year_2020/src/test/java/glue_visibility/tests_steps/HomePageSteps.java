@@ -1,13 +1,21 @@
 package glue_visibility.tests_steps;
 
+import business_objects.Account;
+import business_objects.Letter;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import pages.HomePage;
+import utils.RandomString;
+import exceptions.TestDataException;
 
-public class HomePageSteps {
+@ContextConfiguration(locations = { "classpath:test_data/user_data.xml" })
+public class HomePageSteps extends AbstractJUnit4SpringContextTests {
 
 	private final HomePage homePage = new HomePage();
 
@@ -21,11 +29,16 @@ public class HomePageSteps {
 		homePage.enterButtonClick();
 	}
 
-	@And("^Fill in email \"([^\"]+)\" and password \"([^\"]+)\"$")
-	public void fillInEmail(String email, String password) {
-		homePage.fillInEmail(email);
-		homePage.submitButtonClick();
-		homePage.fillInPassword(password);
+	@And("^Login with \"([^\"]+)\"$")
+	public void fillInEmail(String user) {
+		try {
+			Account account = (Account) applicationContext.getBean(user);
+			homePage.fillInEmail(account.getEmail());
+			homePage.submitButtonClick();
+			homePage.fillInPassword(account.getPassword());
+		} catch (NoSuchBeanDefinitionException e) {
+			throw new TestDataException("Please check if :\"" + user + "\" - bean is defined in user_data.xml");
+		}
 	}
 
 	@When("^'Submit' button click$")
@@ -56,5 +69,16 @@ public class HomePageSteps {
 	@And("^Type \"([^\"]+)\" in \"([^\"]+)\" field$")
 	public void typeTextInAddresseeField(String text, String field) {
 		homePage.typeTextInField(text, field);
+	}
+
+	@And("^Type text in \"([^\"]+)\" field$")
+	public void typeTextInAddresseeField(String field) {
+		homePage.typeTextInField(RandomString.getRandomString(), field);
+	}
+
+	@And("^Send email to: \"([^\"]+)\"$")
+	public void fillInAllFields(String addressee) {
+		homePage.typeTextInField(new Letter(addressee));
+		homePage.sendButtonButtonClick();
 	}
 }

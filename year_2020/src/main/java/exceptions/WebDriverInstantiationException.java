@@ -1,4 +1,4 @@
-package utils.Exceptions;
+package exceptions;
 
 /**
  * Thrown to indicate that an invalid or unsupported browser name was used.

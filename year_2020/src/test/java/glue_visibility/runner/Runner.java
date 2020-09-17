@@ -1,4 +1,4 @@
-package glue_visibility.utils;
+package glue_visibility.runner;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;

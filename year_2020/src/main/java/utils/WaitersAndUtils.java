@@ -1,4 +1,4 @@
-package webdriver;
+package utils;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,6 +9,9 @@ import java.util.concurrent.TimeUnit;
 import static webdriver.WebDriverManager.getWebDriver;
 
 public class WaitersAndUtils {
+
+	private WaitersAndUtils() {
+	}
 
 	private static final int WAIT_FOR_ELEMENT_TIMEOUT_SECONDS = 35;
 
@@ -39,8 +42,8 @@ public class WaitersAndUtils {
 		new WebDriverWait(getWebDriver(), WAIT_FOR_ELEMENT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(webElement));
 	}
 
-	public static void checkUrlToBe(String URL, WebDriver driver) {
-		new WebDriverWait(driver, WAIT_FOR_ELEMENT_TIMEOUT_SECONDS).until(ExpectedConditions.urlToBe(URL));
+	public static void checkUrlToBe(String url, WebDriver driver) {
+		new WebDriverWait(driver, WAIT_FOR_ELEMENT_TIMEOUT_SECONDS).until(ExpectedConditions.urlToBe(url));
 	}
 
 	/**
