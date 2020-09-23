@@ -1,12 +1,9 @@
-package webdriver;
+package com.epam.atm.yandex.webdriver;
 
+import com.epam.atm.yandex.exceptions.WebDriverInstantiationException;
+import com.epam.atm.yandex.reporting.Logger;
 import cucumber.api.java.After;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import reporting.Logger;
-import exceptions.WebDriverInstantiationException;
 
 import java.util.concurrent.TimeUnit;
 
@@ -19,10 +16,9 @@ public class WebDriverManager {
 	}
 
 	public static WebDriver getWebDriver() {
-		if (instance != null) {
-			return instance;
+		if (instance == null) {
+			instance = initWebDriver();
 		}
-		instance = initWebDriver();
 		return instance;
 	}
 
@@ -32,20 +28,20 @@ public class WebDriverManager {
 	private static WebDriver initWebDriver() {
 		String browserName = System.getProperty("browser");
 		WebDriver driver;
+		//DriverCreator creator;
 		switch (WebDriverTypes.get(browserName)) {
 		case FIREFOX:
-			io.github.bonigarcia.wdm.WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
+			//creator = new FireFoxDriverCreator();
+			driver = new FireFoxDriverCreator().createWebDriver();
 			break;
 		case CHROME:
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--start-maximized");
-			io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver(options);
+			//creator = new ChromeDriverCreator();
+			driver = new ChromeDriverCreator().createWebDriver();
 			break;
 		default:
 			throw new WebDriverInstantiationException("ERROR! [" + browserName + "] - is invalid or unsupported name for browser.");
 		}
+		//driver = creator.createWebDriver();
 		Logger.info("Browser: " + browserName + " - successfully started");
 		driver.manage().timeouts().pageLoadTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);//IMPLICIT
 		driver.manage().timeouts().setScriptTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);//IMPLICIT

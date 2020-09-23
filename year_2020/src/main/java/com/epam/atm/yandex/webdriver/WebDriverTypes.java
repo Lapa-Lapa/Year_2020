@@ -1,4 +1,4 @@
-package webdriver;
+package com.epam.atm.yandex.webdriver;
 
 public enum WebDriverTypes {
 	CHROME, FIREFOX, NOT_SUPPORTED_DRIVER;
