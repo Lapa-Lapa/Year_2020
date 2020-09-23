@@ -1,5 +1,5 @@
-package utils;
-import reporting.Logger;
+package com.epam.atm.yandex.utils;
+import com.epam.atm.yandex.reporting.Logger;
 
 import java.util.function.Supplier;
 

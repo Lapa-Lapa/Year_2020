@@ -1,10 +1,10 @@
-package glue_visibility.tests_steps;
+package com.epam.atm.yandex.steps;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import reporting.Logger;
-import webdriver.WebDriverManager;
+import com.epam.atm.yandex.reporting.Logger;
+import com.epam.atm.yandex.webdriver.WebDriverManager;
 
 public class BaseTestSteps {
 

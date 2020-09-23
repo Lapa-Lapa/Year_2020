@@ -5,7 +5,7 @@
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
         ">
-    <bean id="user_with_valid_password" class="business_objects.Account" scope="cucumber-glue">
+    <bean id="user_with_valid_password" class="com.epam.atm.yandex.bo.Account" scope="cucumber-glue">
         <property name="email" value="DarTar123456"/>
         <property name="password" value="DarTar123456!"/>
     </bean>

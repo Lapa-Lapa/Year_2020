@@ -1,4 +1,4 @@
-package utils;
+package com.epam.atm.yandex.utils;
 
 import org.apache.commons.lang3.RandomStringUtils;
 

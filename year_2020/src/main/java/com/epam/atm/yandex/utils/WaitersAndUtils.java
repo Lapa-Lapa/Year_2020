@@ -1,4 +1,4 @@
-package utils;
+package com.epam.atm.yandex.utils;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-import static webdriver.WebDriverManager.getWebDriver;
+import static com.epam.atm.yandex.webdriver.WebDriverManager.getWebDriver;
 
 public class WaitersAndUtils {
 

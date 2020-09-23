@@ -1,7 +1,7 @@
-package glue_visibility.tests_steps;
+package com.epam.atm.yandex.steps;
 
-import business_objects.Account;
-import business_objects.Letter;
+import com.epam.atm.yandex.bo.Account;
+import com.epam.atm.yandex.bo.Letter;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -10,9 +10,9 @@ import org.junit.Assert;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
-import pages.HomePage;
-import utils.RandomString;
-import exceptions.TestDataException;
+import com.epam.atm.yandex.pages.HomePage;
+import com.epam.atm.yandex.utils.RandomString;
+import com.epam.atm.yandex.exceptions.TestDataException;
 
 @ContextConfiguration(locations = { "classpath:test_data/user_data.xml" })
 public class HomePageSteps extends AbstractJUnit4SpringContextTests {
@@ -78,7 +78,7 @@ public class HomePageSteps extends AbstractJUnit4SpringContextTests {
 
 	@And("^Send email to: \"([^\"]+)\"$")
 	public void fillInAllFields(String addressee) {
-		homePage.typeTextInField(new Letter(addressee));
+		homePage.typeTextInField(Letter.createLetterWithAddressee(addressee));
 		homePage.sendButtonButtonClick();
 	}
 }

@@ -1,16 +1,16 @@
-package pages;
+package com.epam.atm.yandex.pages;
 
-import business_objects.Letter;
+import com.epam.atm.yandex.bo.Letter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import utils.Waiter;
-import exceptions.TestDataException;
-import utils.WaitersAndUtils;
-import reporting.Logger;
+import com.epam.atm.yandex.utils.Waiter;
+import com.epam.atm.yandex.exceptions.TestDataException;
+import com.epam.atm.yandex.utils.WaitersAndUtils;
+import com.epam.atm.yandex.reporting.Logger;
 
-import static utils.WaitersAndUtils.*;
+import static com.epam.atm.yandex.utils.WaitersAndUtils.*;
 
 public class HomePage implements BasePage {
 

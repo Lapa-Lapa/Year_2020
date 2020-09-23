@@ -1,4 +1,4 @@
-package exceptions;
+package com.epam.atm.yandex.exceptions;
 
 /**
  * Thrown to indicate that an invalid or unsupported browser name was used.

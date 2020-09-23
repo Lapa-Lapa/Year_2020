@@ -1,4 +1,4 @@
-package business_objects;
+package com.epam.atm.yandex.bo;
 
 import lombok.Data;
 

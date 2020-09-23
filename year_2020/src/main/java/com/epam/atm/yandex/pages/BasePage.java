@@ -1,10 +1,10 @@
-package pages;
+package com.epam.atm.yandex.pages;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import utils.Waiter;
-import webdriver.WebDriverManager;
+import com.epam.atm.yandex.utils.Waiter;
+import com.epam.atm.yandex.webdriver.WebDriverManager;
 
 public interface BasePage {
 

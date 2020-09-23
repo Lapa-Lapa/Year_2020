@@ -1,4 +1,4 @@
-package exceptions;
+package com.epam.atm.yandex.exceptions;
 
 /**
  * Thrown if an application doesn't succeed to get test data

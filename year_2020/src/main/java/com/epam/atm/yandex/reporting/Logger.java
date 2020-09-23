@@ -1,4 +1,4 @@
-package reporting;
+package com.epam.atm.yandex.reporting;
 
 public class Logger {
 
