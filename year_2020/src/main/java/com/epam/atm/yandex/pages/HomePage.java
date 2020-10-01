@@ -57,17 +57,27 @@ public class HomePage implements BasePage {
 		initElements();
 	}
 
+	/**
+	 * Open home page by URL
+	 */
 	public void openHomePage() {
 		driver().navigate().to(URL);
 		Logger.info(URL + " - URL is open");
 		waitForPageIsLoaded();
 	}
 
+	/**
+	 * Click 'Enter' button
+	 */
 	public void enterButtonClick() {
 		enterButton.click();
 		Logger.info("'Enter' button click");
 	}
 
+	/**
+	 * Fill email field with
+	 * @param email
+	 */
 	public void fillInEmail(String email) {
 		Logger.info("Fill in Email field: " + email);
 		CharSequence charSequence = email;
@@ -75,6 +85,10 @@ public class HomePage implements BasePage {
 		loginInput.sendKeys(charSequence);
 	}
 
+	/**
+	 * Fill password field with
+	 * @param password
+	 */
 	public void fillInPassword(String password) {
 		Logger.info("Fill in Password field: " + password);
 		CharSequence charSequence = password;
@@ -82,17 +96,27 @@ public class HomePage implements BasePage {
 		passwordInput.sendKeys(charSequence);
 	}
 
+	/**
+	 * Click 'Submit' button
+	 */
 	public void submitButtonClick() {
 		new Waiter().start("Waiting for 'Submit' button appear.", () -> submitButton.isDisplayed());
 		submitButton.click();
 		Logger.info("'Submit' button click");
 	}
 
+	/**
+	 * Check if header logo present
+	 * @return true if displayed - false otherwise
+	 */
 	public boolean isHeaderLogoPresent() {
 		waitForElementPresent(By.xpath(HEADER_LOGO), driver());
 		return headerLogo.isDisplayed();
 	}
 
+	/**
+	 * Click 'New Email' button
+	 */
 	public void newEmailButtonButtonClick() {
 		waitForElementPresent(By.xpath(NEW_EMAIL_BUTTON), driver());
 		newEmailButton.click();
@@ -100,6 +124,9 @@ public class HomePage implements BasePage {
 		waitForPageIsLoaded();
 	}
 
+	/**
+	 * Click 'Send' button
+	 */
 	public void sendButtonButtonClick() {
 		waitForElementClickable(sendButton);
 		sendButton.click();
@@ -107,17 +134,29 @@ public class HomePage implements BasePage {
 		waitForPageIsLoaded();
 	}
 
+	/**
+	 * Check if 'Letter was send' text present
+	 * @return true if displayed - false otherwise
+	 */
 	public boolean isLetterWasSendTextPresent() {
 		waitForElementVisible(letterWasSendText);
 		return letterWasSendText.isDisplayed();
 	}
 
+	/**
+	 * Filling mandatory letter fields
+	 */
 	public void typeTextInField(Letter letter) {
 		typeTextInField(letter.getAddressee(), ADDRESSEE);
 		typeTextInField(letter.getSubject(), SUBJECT);
 		typeTextInField(letter.getLetterText(), LETTER_TEXT);
 	}
 
+	/**
+	 * Filling
+	 * @param text in specified
+	 * @param field
+	 */
 	public void typeTextInField(String text, String field) {
 		CharSequence[] charSequence = { text };
 		switch (field) {
