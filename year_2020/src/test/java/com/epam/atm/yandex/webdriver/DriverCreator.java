@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 
 public interface DriverCreator {
 
-	//Factory method
+	/**
+	 * Factory method pattern implementation
+	 * @return new WebDriver instance
+	 */
 	WebDriver createWebDriver();
 }

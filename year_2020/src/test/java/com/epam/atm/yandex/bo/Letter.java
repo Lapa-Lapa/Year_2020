@@ -19,11 +19,21 @@ public class Letter {
 		this.subject = subject;
 	}
 
-	//Static factory method
+	/**
+	 * Static factory method with
+	 * @param addressee - custom value
+	 * @return letter with default random subject & letterText
+	 */
 	public static Letter createLetterWithAddressee(String addressee) {
 		return new Letter(addressee);
 	}
 
+	/**
+	 * Static factory method with
+	 * @param addressee - custom value
+	 * @param subject - custom value
+	 * @return letter with default random letterText
+	 */
 	public static Letter createLetterWithSubject(String addressee, String subject) {
 		return new Letter(addressee, subject);
 	}

@@ -6,6 +6,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ChromeDriverCreator implements DriverCreator {
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override public WebDriver createWebDriver() {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--start-maximized");

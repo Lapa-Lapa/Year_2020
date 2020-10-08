@@ -2,7 +2,6 @@ package com.epam.atm.yandex.webdriver;
 
 import com.epam.atm.yandex.exceptions.WebDriverInstantiationException;
 import com.epam.atm.yandex.reporting.Logger;
-import cucumber.api.java.After;
 import org.openqa.selenium.WebDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -15,6 +14,11 @@ public class WebDriverManager {
 	private WebDriverManager() {
 	}
 
+	/**
+	 * Method check if WebDriver already initialized
+	 * @return WebDriver instance, else init WebDriver
+	 * and return new instance
+	 */
 	public static WebDriver getWebDriver() {
 		if (instance == null) {
 			instance = initWebDriver();
@@ -24,6 +28,7 @@ public class WebDriverManager {
 
 	/**
 	 * Static Factory Method https://cucumber.io/docs/guides/browser-automation
+	 * @return WebDriver instance
 	 */
 	private static WebDriver initWebDriver() {
 		String browserName = System.getProperty("browser");
@@ -49,7 +54,9 @@ public class WebDriverManager {
 		return driver;
 	}
 
-	@After
+	/**
+	 * Calling this method closes an instance of WebDriver
+	 */
 	public static void killWebDriver() {
 		if (instance != null) {
 			try {

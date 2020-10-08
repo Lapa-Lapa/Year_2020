@@ -14,10 +14,16 @@ public interface BasePage {
 		return WebDriverManager.getWebDriver();
 	}
 
+	/**
+	 * Init elements for page factory
+	 */
 	default void initElements() {
 		PageFactory.initElements(driver(), this);
 	}
 
+	/**
+	 * Method for waiting that page is loaded
+	 */
 	default void waitForPageIsLoaded() {
 		JavascriptExecutor webDriverInstanceChrome = (JavascriptExecutor) driver();
 		new Waiter().start("Wait for Page is loaded ", () -> webDriverInstanceChrome.executeScript("return document.readyState").toString().equals("complete"));

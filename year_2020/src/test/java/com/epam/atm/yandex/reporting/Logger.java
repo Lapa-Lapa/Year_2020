@@ -1,5 +1,8 @@
 package com.epam.atm.yandex.reporting;
 
+/**
+ * Class for logging
+ */
 public class Logger {
 
 	private Logger() {

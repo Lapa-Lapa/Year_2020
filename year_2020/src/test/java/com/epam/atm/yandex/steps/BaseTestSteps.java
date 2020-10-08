@@ -8,12 +8,18 @@ import com.epam.atm.yandex.webdriver.WebDriverManager;
 
 public class BaseTestSteps {
 
+	/**
+	 * Before scenario method. It will always run no matter what steps class you use in scenario
+	 */
 	@Before
 	public void setUp(Scenario scenario) {
 		Logger.info(String.format("START TEST SCENARIO WITH NAME - %s", scenario.getName()));
 		WebDriverManager.getWebDriver();
 	}
 
+	/**
+	 * After scenario method. It will always run no matter what steps class you use after scenario
+	 */
 	@After
 	public void tearDown(Scenario scenario) {
 		if (!scenario.isFailed()) {

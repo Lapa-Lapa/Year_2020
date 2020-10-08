@@ -9,6 +9,9 @@ import com.epam.atm.yandex.reporting.Logger;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * This class is used to customize WebDriver and JavascriptExecutor methods
+ */
 public class CustomDriverDecorator implements WebDriver, JavascriptExecutor {
 
 	private WebDriver driver;
