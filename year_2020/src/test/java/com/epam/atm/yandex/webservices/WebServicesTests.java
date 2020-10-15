@@ -20,9 +20,10 @@ public class WebServicesTests {
  	@Test
 	public void checkStatusCode() {
 		int statusCode = given().get("/api/users/profiles/current/full").andReturn().getStatusCode();
+		int expectedStatusCode = 200;
 		Logger.info(String.format("statusCode ACTUAL VALUE:   - %1$s", statusCode));
-		Logger.info(String.format("statusCode EXPECTED VALUE: - %1$s", 200));
-		Assert.assertEquals(statusCode, 200);
+		Logger.info(String.format("statusCode EXPECTED VALUE: - %1$s", expectedStatusCode));
+		Assert.assertEquals(statusCode, expectedStatusCode);
 	}
 	@Test
 	public void checkResponseBody() {
