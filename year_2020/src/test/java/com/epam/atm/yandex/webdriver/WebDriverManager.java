@@ -31,7 +31,8 @@ public class WebDriverManager {
 	 * @return WebDriver instance
 	 */
 	private static WebDriver initWebDriver() {
-		String browserName = System.getProperty("browser");
+		//String browserName = System.getProperty("browser");
+		String browserName = "chrome";
 		WebDriver driver;
 		//DriverCreator creator;
 		switch (WebDriverTypes.get(browserName)) {
