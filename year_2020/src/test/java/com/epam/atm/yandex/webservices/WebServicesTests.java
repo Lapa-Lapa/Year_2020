@@ -17,7 +17,8 @@ public class WebServicesTests {
 	public void initTest() {
 		RestAssured.baseURI = "https://www.sephora.com";
 	}
- 	@Test
+
+	@Test
 	public void checkStatusCode() {
 		int statusCode = given().get("/api/users/profiles/current/full").andReturn().getStatusCode();
 		int expectedStatusCode = 200;
@@ -25,6 +26,7 @@ public class WebServicesTests {
 		Logger.info(String.format("statusCode EXPECTED VALUE: - %1$s", expectedStatusCode));
 		Assert.assertEquals(statusCode, expectedStatusCode);
 	}
+
 	@Test
 	public void checkResponseBody() {
 		String responseBody = given().get("/api/users/profiles/current/full").getBody().asString();
@@ -35,7 +37,7 @@ public class WebServicesTests {
 			String expectedMaxSamplesAllowedPerOrder = "2";
 			Logger.info(String.format("maxSamplesAllowedPerOrder ACTUAL VALUE:   - %1$s", maxSamplesAllowedPerOrder));
 			Logger.info(String.format("maxSamplesAllowedPerOrder EXPECTED VALUE: - %1$s", expectedMaxSamplesAllowedPerOrder));
-			Assert.assertEquals(maxSamplesAllowedPerOrder,expectedMaxSamplesAllowedPerOrder);
+			Assert.assertEquals(maxSamplesAllowedPerOrder, expectedMaxSamplesAllowedPerOrder);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
